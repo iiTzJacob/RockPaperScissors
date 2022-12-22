@@ -17,12 +17,21 @@ btn.forEach(button => {
     })
 })
 
+let playerScore = 0;
+let computerScore = 0;
+
+
 function playRound(playerSelection) {
     let computerSelection = getComputerChoice();
     let result = "";
-    let playerScore = 0;
-    let computerScore = 0;
-
+    
+    if (playerScore == 5) {
+        result = '';
+        result += "You win!"
+    } else if (computerScore == 5) {
+        result = '';
+        result += "You lose!"
+    } else {
     
     if ((playerSelection == "rock" && computerSelection == "scissors") ||
         (playerSelection == "scissors" && computerSelection == "paper") ||
@@ -32,11 +41,13 @@ function playRound(playerSelection) {
         } else if (playerSelection == computerSelection) {
             result += "Its a tie."
         } else {
-            result += "You lose."
+            result += `You lose. The computer chose ${computerSelection}`;
             computerScore += 1;
         }
-        newDiv.textContent = `${result}
-        Your Score: ${playerScore};
-        Computer Score: ${computerScore}`;
+        
     }
+    newDiv.textContent = `${result}
+    Your Score: ${playerScore};
+    Computer Score: ${computerScore}`;
     scores.append(newDiv);
+}
