@@ -46,8 +46,8 @@ function playRound(playerSelection) {
         }
         
     }
-    newDiv.textContent = `${result}
-    Your Score: ${playerScore};
-    Computer Score: ${computerScore}`;
+    newDiv.textContent = `${result}` + '\n' +
+                        `Your Score: ${playerScore}` + '\n' +
+                        `Computer Score: ${computerScore}`;
     scores.append(newDiv);
 }
